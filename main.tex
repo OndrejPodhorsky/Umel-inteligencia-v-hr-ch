@@ -15,9 +15,11 @@
 
 \maketitle
 
-\section{Abstrakt}
+\begin{abstract}
 
 Obsahom tohto článku je čitateľovi priblížiť aplikáciu umelej inteligencie vo video hernom priemysle, dejiny a minulosť uplatnenia. Umelá inteligencia ako má tento článok ukázať, má za ciel riešenie komplexných problémov pomocou stroja v hrách, čiže napríklad v oblastiach samotného vývoja, fungovania a hrateľnosti . Zároveň takáto aplikácia takýchto algoritmov má v súčasnosti určité limitácie na, ktoré bude snaha poukázať a prípadne nájsť použitelné a vhodné možnosti riešenia.
+
+\end{abstract}
 
 \clearpage
 
@@ -33,10 +35,24 @@ Cieľom tohto článku je priblížiť použitie a možnosti použitia umelej in
 \clearpage
 
 \section{Hry ako testovacie prostredie}
+\subsection{Klasické hry}
 
-Hry boli odzačiatku vzniku prvých algoritmov pre vedcov ihrysko, kde mohli testovať najnovšie technológie. V roku 1951 Christopher Strachey  napísal program pre dámu a Dietrich Prinz pre šach \cite{Copeland}. Klasické doskové hry boli ideálne pre testovanie s pevnými pravidlami no zároveň komplexné. Cielom bola snaha poraziť človeka v týchto hrách. Veľkým milníkom sa stal šachový zápas medzi veľmajstrom Kasparovom a IBM Deep Blue v roku 1997, ktorý Deep Blue na koniec vyhral 4-2. Alebo nedávne výťaztvo Google Deeps mind Alpha go v hre go nad svetovým šampión Lee Sedolom. Go je najkomplexnejšia dosková z klasických abstraktných hier a preto sa v súčastnosti prechádza na kartové hry či online stratégie odohrávajúce sa v reálnom čase.
+Hry boli odzačiatku vzniku prvých algoritmov pre vedcov ihrysko, kde mohli testovať najnovšie technológie. V roku 1951 Christopher Strachey  napísal program pre dámu a Dietrich Prinz pre šach \cite{Copeland}. Klasické doskové hry boli ideálne pre testovanie s pevnými pravidlami no zároveň komplexné. Cielom bola snaha poraziť človeka v týchto hrách. Veľkým milníkom sa stal šachový zápas medzi veľmajstrom Kasparovom a IBM Deep Blue v roku 1997, ktorý Deep Blue na koniec vyhral 4-2. Alebo nedávne výťaztvo Google Deeps mind Alpha go v hre go nad svetovým šampión Lee Sedolom\cite{Reuters}. Go je najkomplexnejšia dosková z klasických abstraktných hier a preto sa v súčastnosti prechádza na komplikovanejšie tituly.
 
-\subsection{Moba, kartové hry}
+\subsection{Neperfektné hry}
+
+Jednou s takychto hier je napríklad kartová hra texas hold'em, ľudovo nazývaná poker, ktorá sa radí medzi neperfektné vďaka tomu že, hráč si nemôže byť stopercentne istý aký bude mať hra výsledok a pracuje tak iba s pravdepodobnosťami, taktiež hráči nemajú rovnaké informácia. Pre takéto hry je obtiažne vymyslieť algoritmy, kôli rôznorodým premenným, ktoré do nich vstupujú. Ako prvej umelej inteligencie, ktorá prekonala tieto prekážky a pokorila štyroch vrcholových hráčov v maratóne pokru v hre o 1,7 milióna dolárov v roku 2017, kde hráči hrali v dvojiciach proti sebe, sa stala Libratus vytvorená univerzitou Carnegieho–Mellonových z Pensylvánie\cite{Reuters}. Na tento úspech tím z spomínanej univerzity nadviazal a v roku 2019, keď porazili v hre viacerých hráčov šesť profesionálov\cite{Nature}. 
+
+\subsection{Sociálne hry}
+
+Hry majú aj svoju socialnu stránku, teda v hre sa nachádzajú prvky diplomacie, obchodu, kooperácie a je nutné mať pri nich schopnosť jasne sa dorozumievať s ostatnými hráčmi. Napríklad už spomínaná kartová hra poker má aj sociálny prvok a to je takzvané blufovanie, kde hráč svojou hrou chce presvedčiť súpera, že má lepšie karty na ruke než v skutočostni vlastní. Bez schopnosti blufovať a rozpoznať či niekto blufuje by nikto nevedel dosiahnuť špičkovej úrovne v pokru, no Libratus to dokáže s nesmiernou presnosťou. Analizuje predošlé hry súpera, súčastnú sytuáciu a primerane sa rozhodne. Ďalšou z pár takýchto sociálnych hier, ktorú umelá inteligenicia dokázala "poraziť" je Diplomacia\cite{doi:10.1126/science.ade9097}. Ako jej meno napovedá, hnacím motorom je diplomacia. A tu prichádza problém lebo posilnené učenie sa tu nedá použiť. Keď hrá počítač len proti sebe, tak dosiahne nadludských výkonov ale keď rovnaký algoritmus dosadíme do prostredia s viacerímy hráčmi, kde je nutnosť kooperácie tak je prakticky nepoužitelný. Cicero, program ktorý tieto problémy vyriešil, od firmy meta. Na diagrame je prehlade ukázané ako funguje.
+
+\begin{figure}{2. Architektúra Cicera\cite{doi:10.1126/science.ade9097}}
+\centering
+\includegraphics[width=103mm]{science.ade9097-f1.jpg}
+\end{figure}
+Cicero predpovedá pravdepodobnosť ťahov pre každého hráča podľa stavu hry a histórie dialógu, pričom to použije ako východiskový bod pre plánovací algoritmus využívajúci trénované  modely. Výstupom plánovania je akcia pre agenta, ako aj predstava o akciách ostatných hráčov, ktoré sa neskôr používajú na výber zámerov pre model dialógu, ktorým sa má podmieniť. Vygenerovaní kandidáti na správu podstúpia niekoľko krokov filtrovania pred odoslaním konečnej správy.
+
 
 \section{Nehráčske postavy}
 
